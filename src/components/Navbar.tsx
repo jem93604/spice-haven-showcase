@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingBag, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useCart } from '@/contexts/CartContext';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
@@ -15,7 +14,6 @@ const navLinks = [
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const { totalItems, setIsOpen: setCartOpen } = useCart();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
@@ -49,20 +47,6 @@ export const Navbar = () => {
 
           {/* Actions */}
           <div className="flex items-center gap-2 md:gap-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="relative"
-              onClick={() => setCartOpen(true)}
-            >
-              <ShoppingBag className="h-5 w-5" />
-              {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-spice text-spice-foreground text-xs flex items-center justify-center font-medium">
-                  {totalItems}
-                </span>
-              )}
-            </Button>
-
             <Button asChild className="hidden md:flex bg-primary hover:bg-primary/90">
               <Link to="/contact">
                 <Phone className="h-4 w-4 mr-2" />

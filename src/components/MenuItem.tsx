@@ -1,9 +1,6 @@
-import { Plus, Flame, Leaf } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Flame, Leaf } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
-import { useCart } from '@/contexts/CartContext';
-import { toast } from 'sonner';
 import type { MenuItem as MenuItemType } from '@/data/menuData';
 
 interface MenuItemProps {
@@ -11,24 +8,12 @@ interface MenuItemProps {
 }
 
 export const MenuItem = ({ item }: MenuItemProps) => {
-  const { addItem } = useCart();
-
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',
       currency: 'INR',
       minimumFractionDigits: 0,
     }).format(price);
-  };
-
-  const handleAddToCart = () => {
-    addItem({
-      id: item.id,
-      name: item.name,
-      price: item.price,
-      image: item.image,
-    });
-    toast.success(`${item.name} added to cart!`);
   };
 
   return (
@@ -72,17 +57,9 @@ export const MenuItem = ({ item }: MenuItemProps) => {
             {formatPrice(item.price)}
           </span>
         </div>
-        <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-2">
+        <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
           {item.description}
         </p>
-        <Button
-          variant="outline"
-          className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-          onClick={handleAddToCart}
-        >
-          <Plus className="h-4 w-4 mr-2" />
-          Add to Order
-        </Button>
       </div>
     </Card>
   );

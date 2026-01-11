@@ -3,7 +3,6 @@ import { Footer } from '@/components/Footer';
 import { Hero } from '@/components/Hero';
 import { TodaysSpecials } from '@/components/TodaysSpecials';
 import { GoogleReviews } from '@/components/GoogleReviews';
-import { Cart } from '@/components/Cart';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Utensils, Fish, Leaf, MapPin } from 'lucide-react';
@@ -13,8 +12,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <Cart />
-
+      
       <main>
         <Hero heroImage={heroImage} />
 

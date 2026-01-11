@@ -1,6 +1,5 @@
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { Cart } from '@/components/Cart';
 import { Award, Users, Leaf, Clock } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import restaurantImage from '@/assets/restaurant-interior.jpg';
@@ -24,7 +23,6 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <Cart />
 
       <main className="pt-20 md:pt-24">
         {/* Hero Section */}
