@@ -14,7 +14,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Cart />
-      
+
       <main>
         <Hero heroImage={heroImage} />
 
@@ -28,8 +28,8 @@ const Index = () => {
                 { icon: Leaf, title: 'Organic Spices', desc: 'From Kerala\'s finest plantations' },
                 { icon: MapPin, title: 'Fort Kochi', desc: 'Heritage waterfront location' },
               ].map((feature, index) => (
-                <div 
-                  key={feature.title} 
+                <div
+                  key={feature.title}
                   className="text-center p-6 rounded-xl bg-background shadow-soft animate-fade-up"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
@@ -56,7 +56,7 @@ const Index = () => {
               <span className="text-accent block mt-2">Culinary Journey?</span>
             </h2>
             <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-8 text-lg">
-              Join us for a memorable dining experience where the flavors of Kerala's coast 
+              Join us for a memorable dining experience where the flavors of Kerala's coast
               come alive in every dish. Reserve your table today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -66,7 +66,7 @@ const Index = () => {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+              <Button asChild size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
                 <Link to="/menu">
                   View Full Menu
                 </Link>

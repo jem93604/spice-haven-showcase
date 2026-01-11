@@ -45,7 +45,7 @@ export const Hero = ({ heroImage }: HeroProps) => {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 leading-relaxed animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            Fresh from the Arabian Sea to your plate. Experience the rich traditions 
+            Fresh from the Arabian Sea to your plate. Experience the rich traditions
             of coastal Kerala cuisine at Fort Kochi's finest seafood restaurant.
           </p>
 
@@ -57,7 +57,7 @@ export const Hero = ({ heroImage }: HeroProps) => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 backdrop-blur-sm">
+            <Button asChild size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 backdrop-blur-sm">
               <Link to="/contact">
                 Book a Table
               </Link>
