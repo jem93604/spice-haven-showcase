@@ -1,13 +1,9 @@
-import { Flame, Clock, Plus } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Flame, Clock } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { menuItems } from '@/data/menuData';
-import { useCart } from '@/contexts/CartContext';
-import { toast } from 'sonner';
 
 export const TodaysSpecials = () => {
-  const { addItem } = useCart();
   const specials = menuItems.filter(item => item.isSpecial).slice(0, 3);
 
   const formatPrice = (price: number) => {
@@ -16,16 +12,6 @@ export const TodaysSpecials = () => {
       currency: 'INR',
       minimumFractionDigits: 0,
     }).format(price);
-  };
-
-  const handleAddToCart = (item: typeof specials[0]) => {
-    addItem({
-      id: item.id,
-      name: item.name,
-      price: item.price,
-      image: item.image,
-    });
-    toast.success(`${item.name} added to cart!`);
   };
 
   return (
@@ -83,16 +69,9 @@ export const TodaysSpecials = () => {
                 <h3 className="font-display text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                   {item.name}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   {item.description}
                 </p>
-                <Button
-                  className="w-full bg-primary hover:bg-primary/90"
-                  onClick={() => handleAddToCart(item)}
-                >
-                  <Plus className="h-4 w-4 mr-2" />
-                  Add to Order
-                </Button>
               </div>
             </Card>
           ))}

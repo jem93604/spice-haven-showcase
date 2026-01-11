@@ -1,6 +1,5 @@
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { Cart } from '@/components/Cart';
 import { ReservationForm } from '@/components/ReservationForm';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -13,7 +12,6 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <Cart />
 
       <main className="pt-20 md:pt-24">
         {/* Header */}

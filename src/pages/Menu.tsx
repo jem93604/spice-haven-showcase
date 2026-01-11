@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { Cart } from '@/components/Cart';
 import { MenuItem } from '@/components/MenuItem';
 import { menuItems, categories } from '@/data/menuData';
 import { cn } from '@/lib/utils';
@@ -17,7 +16,6 @@ const Menu = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <Cart />
 
       <main className="pt-20 md:pt-24">
         {/* Header */}
