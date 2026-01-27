@@ -8,7 +8,7 @@
 - Build and deployment succeed automatically on push to main
 - Artifacts are uploaded correctly
 
-❌ **GitHub Pages is NOT ENABLED in repository settings**
+⚠️ **IMPORTANT**: After enabling GitHub Pages, you must trigger a new deployment!
 
 ## How to Enable GitHub Pages
 
@@ -24,12 +24,25 @@
    
 2. Click **Save** if prompted
 
-### Step 3: Wait for Deployment
-- The workflow has already run successfully
-- Once you enable GitHub Pages with "GitHub Actions" as the source, the site should become immediately available
-- If not immediately available, trigger a new deployment by:
-  - Making a small commit to the main branch, OR
-  - Going to Actions → Deploy to GitHub Pages → Run workflow
+### Step 3: Trigger a New Deployment (CRITICAL!)
+
+**After enabling GitHub Pages, you MUST trigger a new deployment:**
+
+**Option 1: Manual Workflow Trigger (Recommended)**
+1. Go to the **Actions** tab in your repository
+2. Click on **"Deploy to GitHub Pages"** in the left sidebar
+3. Click the **"Run workflow"** button on the right
+4. Select the **main** branch from the dropdown
+5. Click **"Run workflow"** (green button)
+6. Wait for the workflow to complete (usually takes 1-2 minutes)
+
+**Option 2: Push a Change to Main**
+1. Make any small change to the repository on the main branch
+2. Commit and push the change
+3. The workflow will automatically trigger
+
+**Why is this needed?**
+The last deployment ran BEFORE GitHub Pages was enabled. GitHub Pages needs a fresh deployment after being enabled to work properly.
 
 ### Step 4: Verify
 Visit: https://jem93604.github.io/spice-haven-showcase/
@@ -38,11 +51,18 @@ You should see the Spice Haven restaurant website.
 
 ## Troubleshooting
 
-### If you still see 404:
-1. Check that "GitHub Actions" is selected as the source (not a branch)
-2. Wait 2-5 minutes for propagation
-3. Try a hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
-4. Check Actions tab to ensure the latest workflow completed successfully
+### If you still see 404 after enabling GitHub Pages:
+1. **Did you trigger a new deployment?** This is the most common issue! See Step 3 above.
+2. Check that "GitHub Actions" is selected as the source (not a branch)
+3. Go to Actions tab and verify the workflow completed successfully after you enabled Pages
+4. Wait 2-5 minutes after the workflow completes for DNS propagation
+5. Try a hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
+
+### How to verify the deployment worked:
+1. Go to the **Actions** tab
+2. Look for a **green checkmark** next to the latest "Deploy to GitHub Pages" run
+3. The run should have completed AFTER you enabled GitHub Pages
+4. Click on the run to see deployment details
 
 ### If you see "Enforce HTTPS" warning:
 - You can safely enable "Enforce HTTPS" - it's recommended
